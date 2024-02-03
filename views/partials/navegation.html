@@ -1,0 +1,58 @@
+<link rel="stylesheet " href="/css/navegation.css ">
+ 
+<header class="header">
+  <nav class="nav">
+    <a href="/" class="logo logo-text">
+      <img src="https://i.imgur.com/bEnNxAb.jpeg" alt="Auroria bot icon">
+      <p>cherylcann</p>
+    </a>
+
+    <button class="nav-toggle" aria-label="Abrir El Menu">
+      <i class="fas fa-bars" style="color:white;"></i>
+    </button>
+
+    <ul class="nav-menu">
+      <li class="nav-menu-item"><a href="/commands" class="nav-menu-link nav-link">Comandos</a></li>
+      <li class="nav-menu-item"><a href="/docs" class="nav-menu-link nav-link">Docs</a></li>
+      <li class="nav-menu-item"><a href="/premium" class="nav-link-prm"><i class="fa-solid fa-crown"></i> Premium</a></li>
+      <li class="nav-menu-item"><a href="https://discord.gg/rBnEfDxPFB" class="nav-menu-link nav-link">Soporte</a></li>
+
+      <%if(!member){ %>
+      <li class="nav-menu-item"><a href="/login"class="nav-menu-login">Login</a></li>
+      <%}else{
+
+      %>
+      
+      <li class="nav-menu-item2">
+        <a href="#" class="nav-link nav-menu-profile">
+          <img class= "nav-perfil-icon" src="https://i.imgur.com/bEnNxAb.jpeg" alt="cherylcann icon">
+          <p>cherylcann</p>
+        </a>
+
+        <ul class="dropdown">
+          <li class="dropdown-a"><a href="/dashboard">Dashboard</a></li>
+          <li class="dropdown-a"><a href="/perfil">Perfil</a></li>
+          <li class="dropdown-hr"><hr></li>
+          <li class="dropdown-exit"><a href="/exit">Cerrar Sesion</a></li>
+        </ul>
+
+      </li> 
+      <%}%>
+    </ul>
+  </nav>
+</header>
+
+<script type="text/javascript">
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle("nav-menu_visible");
+
+    if (navMenu.classList.contains("nav-menu_visible")) {
+      navToggle.setAttribute("aria-label", "Cerrar el menú");
+    } else {
+      navToggle.setAttribute("aria-label", "Abrir el menú");
+    }
+  });
+</script>
